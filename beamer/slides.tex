@@ -1,0 +1,77 @@
+% Compile from this directory: latexmk slides.tex
+\documentclass[dvipdfmx,aspectratio=169,t]{beamer}
+\usetheme{lineSeed}
+\usepackage{colortbl}
+
+\title{TITLE HERE}
+\author{NAME}
+\filename{スライド記入例}
+
+\begin{document}
+
+\seedtitleframe
+
+\begin{frame}{TITLE}
+  \begin{itemize}
+    \item First Level
+      \begin{itemize}
+        \item Second Level
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{日本語のスライド}
+  \begin{itemize}
+    \item 第一階層の箇条書き
+      \begin{itemize}
+        \item 第二階層の補足説明
+      \end{itemize}
+    \item \textbf{太字の強調}と English 123
+      \begin{itemize}
+        \item 句読点、括弧（かっこ）、長音を確認
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{画像の挿入}
+  % 画像のパスを差し替えます。縦横比を保ったまま幅を指定します。
+  \centering
+  \includegraphics[width=400bp]{../assets/sample-slide.png}\par
+  \vspace{8bp}
+  {\fontsize{14bp}{21bp}\selectfont 図1：参考スライド（差し替え用）\par}
+\end{frame}
+
+\begin{frame}{表の挿入}
+  数値は記入例です。\par
+  \vspace{12bp}
+  \begingroup
+  \fontsize{16bp}{24bp}\selectfont
+  \renewcommand{\arraystretch}{1.35}
+  \setlength{\tabcolsep}{12bp}
+  % lは左寄せ、rは右寄せです。セルは&、行は\\で区切ります。
+  \begin{tabular}{lrr}
+    \textbf{手法} & \textbf{平均時間（ms）} & \textbf{標準偏差（ms）} \\
+    \arrayrulecolor{SeedAccent}\hline
+    基準 & 120 & 8 \\
+    \arrayrulecolor{SeedRule}\hline
+    手法A & 95 & 6 \\
+    \hline
+    手法B & 82 & 5 \\
+    \hline
+  \end{tabular}
+  \endgroup
+\end{frame}
+
+\begin{frame}{数式の挿入}
+  測定値を $x_i$、測定回数を $n$ とします。
+  % 文中の数式は$...$、独立した数式は\[...\]で囲みます。
+  \[
+    \bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+  \]
+  記入例：$x_i = 10, 12, 14, 16, 18$、$n = 5$
+  \[
+    \bar{x} = \frac{10 + 12 + 14 + 16 + 18}{5} = 14
+  \]
+\end{frame}
+
+\end{document}

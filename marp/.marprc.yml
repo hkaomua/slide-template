@@ -1,0 +1,4 @@
+themeSet:
+  - ./themes/line-seed.css
+html: true
+lang: ja

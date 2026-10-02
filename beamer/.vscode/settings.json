@@ -1,0 +1,30 @@
+{
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "upLaTeX → dvipdfmx (LINE Seed)",
+      "tools": [
+        "hkaomua-uplatex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "hkaomua-uplatex",
+      "command": "latexmk",
+      "args": [
+        "-r",
+        "%DIR%/.latexmkrc",
+        "-cd",
+        "-pdfdvi",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  "latex-workshop.latex.build.enableMagicComments": false
+}

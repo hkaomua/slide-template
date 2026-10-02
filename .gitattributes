@@ -1,0 +1,13 @@
+* text=auto
+*.md text eol=lf
+*.css text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.tex text eol=lf
+*.sty text eol=lf
+*.typ text eol=lf
+*.otf binary
+*.woff2 binary
+*.png binary
+*.pdf binary

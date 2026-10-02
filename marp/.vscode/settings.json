@@ -1,0 +1,4 @@
+{
+  "markdown.marp.themes": ["./themes/line-seed.css"],
+  "markdown.marp.enableHtml": true
+}

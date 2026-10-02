@@ -1,0 +1,160 @@
+/* Geometry is expressed in PDF points (1pt = 1/72 inch in CSS).
+ * Template.pdf: 720 x 405pt. Colors and positions were measured from the PDF.
+ * Font license: ../../fonts/OFL.txt
+ */
+section {
+  --seed-accent: #1793d1;
+  --seed-rule: #aaaaaa;
+  --seed-footer: #333333;
+  width: 960px;
+  height: 540px;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  padding: 89.15pt 35.084645pt 42pt;
+  background: linear-gradient(to bottom,
+    #ffffff 0pt, #ffffff 382.32678pt,
+    var(--seed-accent) 382.32678pt, var(--seed-accent) 384.59448pt,
+    var(--seed-footer) 384.59448pt, var(--seed-footer) 405pt);
+  color: #000000;
+  font-family: "LINE Seed JP", sans-serif;
+  font-size: 18pt;
+  font-weight: 400;
+  line-height: 27pt;
+  letter-spacing: 0;
+  font-kerning: none;
+  font-variant-ligatures: none;
+  overflow: hidden;
+}
+section *, section *::before, section *::after { box-sizing: border-box; }
+section h1 {
+  position: absolute;
+  left: 35.084645pt;
+  right: 35.084645pt;
+  top: 19.873416pt;
+  margin: 0;
+  padding: 0;
+  font-size: 24pt;
+  line-height: 36pt;
+  font-weight: 700;
+}
+section::before {
+  content: "";
+  position: absolute;
+  left: 36pt;
+  top: 64.66732pt;
+  width: 648pt;
+  height: 1.70079pt;
+  border-radius: 1pt;
+  background: linear-gradient(to right, var(--seed-accent) 0pt,
+    var(--seed-accent) 51.02362pt, var(--seed-rule) 51.02362pt);
+}
+section footer {
+  position: absolute;
+  left: 10.098425pt;
+  right: 48pt;
+  top: 388.33508pt;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-size: 8pt;
+  line-height: 12pt;
+  font-weight: 400;
+  white-space: nowrap;
+}
+section footer p { margin: 0; }
+section::after {
+  position: absolute;
+  left: auto;
+  right: 13.159607pt;
+  top: 388.9028pt;
+  bottom: auto;
+  padding: 0;
+  color: #ffffff;
+  font-size: 8pt;
+  font-weight: 400;
+  line-height: 12pt;
+}
+section p { margin: 0 0 12pt; }
+section strong { font-weight: 700; }
+section ul, section ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+section li {
+  position: relative;
+  padding-left: 36pt;
+  margin: 0;
+}
+section ul > li::before {
+  content: "";
+  position: absolute;
+  left: 8.9pt;
+  top: 11.1pt;
+  width: 7.4pt;
+  height: 7.4pt;
+  background: currentColor;
+  border-radius: 50%;
+}
+section ul ul, section ol ol, section ul ol, section ol ul {
+  margin-top: -1.612pt;
+  font-size: 14pt;
+  line-height: 21pt;
+}
+section ul ul > li::before, section ol ul > li::before {
+  left: 11.2pt;
+  top: 9.2pt;
+  width: 5.4pt;
+  height: 5.4pt;
+  border: 0.55pt solid currentColor;
+  background: transparent;
+}
+section li > p { margin: 0; }
+section ol { counter-reset: item; }
+section ol > li { counter-increment: item; }
+section ol > li::before {
+  content: counter(item) ".";
+  position: absolute;
+  left: 4pt;
+  top: 0;
+  width: 22pt;
+  text-align: right;
+}
+section h2 { font-size: 20pt; line-height: 30pt; margin: 10pt 0; }
+section h3 { font-size: 18pt; line-height: 27pt; margin: 8pt 0; }
+section a { color: var(--seed-accent); }
+section code { font-family: ui-monospace, monospace; font-size: 0.85em; }
+section pre { font-size: 14pt; line-height: 21pt; padding: 10pt; background: #f4f4f4; }
+section img { max-width: 100%; max-height: 268pt; object-fit: contain; }
+section table { border-collapse: collapse; font-size: 16pt; line-height: 24pt; }
+section th, section td { padding: 5pt 12pt; border-bottom: 0.6pt solid var(--seed-rule); text-align: left; }
+section th { font-weight: 700; border-bottom: 1.4pt solid var(--seed-accent); }
+section blockquote { margin: 12pt 0; padding-left: 12pt; border-left: 2pt solid var(--seed-accent); }
+section .katex { font-size: 1em; }
+section.title h1 {
+  left: 24.54396pt;
+  right: 39.07093pt;
+  top: 146.97599pt;
+  font-size: 52pt;
+  font-weight: 800;
+  line-height: 72pt;
+  text-align: center;
+}
+section.title > p {
+  position: absolute;
+  top: 227.16945pt;
+  left: 24.5433pt;
+  right: 24.5433pt;
+  margin: 0;
+  font-size: 20pt;
+  line-height: 30pt;
+  text-align: center;
+}
+section.title::before, section.title::after { display: none; }
+/* Use "class: title long-title" for a title that needs two lines. */
+section.title.long-title h1 { top: 127pt; font-size: 36pt; line-height: 46pt; }
+/* Image and caption remain within the content area above the footer. */
+section.image-example > p { text-align: center; }
+section.image-example > p:has(img) { margin: 0 0 8pt; line-height: 0; }
+section.image-example > p:not(:has(img)) { font-size: 14pt; line-height: 21pt; }

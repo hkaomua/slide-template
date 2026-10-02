@@ -1,0 +1,17 @@
+{
+  "name": "hkaomua-slide-template",
+  "private": true,
+  "version": "1.0.0",
+  "description": "LINE Seed JP slide templates for Marp, Beamer, and Typst",
+  "scripts": {
+    "theme": "node scripts/build-theme.mjs",
+    "html": "npm run theme && marp slides.md --output slides.html",
+    "pdf": "npm run theme && marp slides.md --pdf --allow-local-files --output slides.pdf",
+    "build": "npm run html && npm run pdf",
+    "watch": "npm run theme && marp slides.md --watch --output slides.html"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "4.5.1"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,37 @@
+# Installed packages and generated Marp outputs
+marp/node_modules/
+marp/themes/line-seed.css
+marp/slides.html
+marp/slides.pdf
+
+# LaTeX intermediate files and build outputs
+beamer/build/
+typst/build/
+typst/slides.pdf
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.xdv
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Local files
+fonts/**
+!fonts/README.md
+!fonts/OFL.txt
+.DS_Store
+Thumbs.db
+*.zip
+.env
+.env.*
+
+# Local Python environment and upLaTeX outputs
+.venv/
+__pycache__/
+*.dvi
+*.vrb
+missfont.log
