@@ -20,7 +20,8 @@ Markdown、LaTeX、Typstの3形式で編集できます。
 ## 共通セットアップ
 
 ローカルでテーマをビルドする場合は、フォントを追加します。
-`fonts/`にフォント本体は含めていませんが、公開用の`docs/hkaomua.css`にはWOFF2フォントを埋め込んでいます。
+`fonts/`にフォント本体は含めていません。
+公開用の`docs/hkaomua.css`はGoogle Fontsからフォントを読み込むため、このセットアップは不要です。
 [LINE Seed公式サイト](https://seed.line.me/index_jp.html)から日本語版のLINE Seed JPをダウンロードし、ZIPを展開してください。
 リポジトリのルートで、展開したフォルダを指定して実行します（Node.jsが必要です）。
 
@@ -61,7 +62,9 @@ paginate: true
 ```
 
 Markdownのプレビューでスライドを表示できます。
-テーマを読み込むにはインターネット接続が必要ですが、フォントのインストールやフォルダごとのCSS配置は不要です。
+公開テーマとGoogle Fontsの読み込みにはインターネット接続が必要ですが、フォントのインストールやフォルダごとのCSS配置は不要です。
+HTMLの表示とPDFの生成時にフォントを取得します。
+フォントを埋め込んだ生成済みPDFは、インターネット接続なしで閲覧できます。
 プロジェクトの設定で`markdown.marp.themes`を指定している場合はユーザー設定より優先されるため、その配列にも公開URLを追加してください。
 
 ### ローカルでビルドする
@@ -238,7 +241,8 @@ docs/       GitHub Pages公開用テーマ、ライセンス、README用の画�
 
 ## 公開テーマの更新
 
-`marp/themes/line-seed.source.css`を編集し、フォントをセットアップした環境で次を実行します。
+`marp/themes/line-seed.source.css`を編集し、次を実行します。
+公開テーマの生成にはNode.jsだけが必要で、フォントのセットアップは不要です。
 
 ```sh
 npm --prefix marp run theme:pages
@@ -247,7 +251,8 @@ npm --prefix marp run theme:pages
 生成された`docs/hkaomua.css`と変更したソースをコミットして`main`にpushすると、GitHub Pagesが更新されます。
 Pagesの公開元は`main`ブランチの`/docs`です。
 ローカル用テーマ名の`line-seed`は維持し、公開用テーマ名には`hkaomua`を使っています。
-公開CSSの更新は同じURLを使う資料にも反映されるため、過去の見た目を固定したい場合はCSSを資料と一緒に保存してください。
+公開CSSの更新は同じURLを使う資料にも反映されます。
+Google Fonts側のフォントも更新される場合があるため、過去の見た目を固定したい場合は生成済みPDFを保存するか、フォント埋め込みのローカル用テーマを使ってください。
 
 ## 開発時の確認
 
@@ -271,6 +276,7 @@ Marpのコマンドについては[公式ドキュメント](https://github.com/
 テーマ、スクリプト、記入例、ドキュメントは[MIT License](LICENSE)で公開しています。
 LINE Seed JPのフォントはMITの対象ではなく、SIL Open Font License 1.1が適用されます。
 ローカルでビルドするためのフォント本体は各自で公式サイトから取得してください。
-公開CSSには未改変のWOFF2フォントとOFLの全文を埋め込み、[docs/OFL.txt](docs/OFL.txt)にもライセンスを同梱しています。
+公開CSSはGoogle Fontsで配信されているLINE Seed JPを参照します。
+ライセンスの参照用に[docs/OFL.txt](docs/OFL.txt)を同梱しています。
 PDF見本には表示に必要なフォントの一部が埋め込まれています。
 その著作権表示とライセンスは[fonts/OFL.txt](fonts/OFL.txt)にあります。
