@@ -1,4 +1,7 @@
 {
-  "markdown.marp.themes": ["./themes/line-seed.css"],
+  "markdown.marp.themes": [
+    "./themes/line-seed.css",
+    "https://hkaomua.github.io/slide-template/hkaomua.css"
+  ],
   "markdown.marp.enableHtml": true
 }
