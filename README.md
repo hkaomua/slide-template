@@ -19,7 +19,8 @@ Markdown、LaTeX、Typstの3形式で編集できます。
 
 ## 共通セットアップ
 
-フォント本体はリポジトリに含めていません。
+ローカルでテーマをビルドする場合は、フォントを追加します。
+`fonts/`にフォント本体は含めていませんが、公開用の`docs/hkaomua.css`にはWOFF2フォントを埋め込んでいます。
 [LINE Seed公式サイト](https://seed.line.me/index_jp.html)から日本語版のLINE Seed JPをダウンロードし、ZIPを展開してください。
 リポジトリのルートで、展開したフォルダを指定して実行します（Node.jsが必要です）。
 
@@ -33,6 +34,37 @@ Regular、Bold、ExtraBoldのOTFとWOFF2、およびOFLを`fonts/`にコピー�
 フォントは`.gitignore`でGit管理から除外しています。
 
 ## Marpで使う
+
+### VS Codeで公開テーマを使う
+
+「Marp for VS Code」をインストールし、VS Codeのユーザー設定（JSON）の`markdown.marp.themes`に次のURLを追加します。
+既存のテーマを登録している場合は、その配列にURLを追加してください。
+
+```json
+{
+  "markdown.marp.themes": [
+    "https://hkaomua.github.io/slide-template/hkaomua.css"
+  ]
+}
+```
+
+任意のフォルダでMarkdownファイルを作り、冒頭でテーマを指定します。
+
+```markdown
+---
+marp: true
+theme: hkaomua
+paginate: true
+---
+
+# 発表タイトル
+```
+
+Markdownのプレビューでスライドを表示できます。
+テーマを読み込むにはインターネット接続が必要ですが、フォントのインストールやフォルダごとのCSS配置は不要です。
+プロジェクトの設定で`markdown.marp.themes`を指定している場合はユーザー設定より優先されるため、その配列にも公開URLを追加してください。
+
+### ローカルでビルドする
 
 Node.js 18以上とnpmを用意します。
 PDF出力にはChrome、Edge、Firefoxのいずれかが必要です。
@@ -196,12 +228,26 @@ typst/      Typst、Touying用テーマ
 fonts/      フォントの配置先（フォント本体は含みません）
 assets/     3形式で使う画像
 previews/   PDF見本
-docs/       README用の画像
+docs/       GitHub Pages公開用テーマ、ライセンス、README用の画像
 ```
 
 使い始めるときは、リポジトリ全体を取得してください。
 `fonts/`と各形式のフォルダの相対位置を保てば、OSへのフォントインストールは不要です。
-生成済みCSS、HTML、作業用PDF、`node_modules`、LaTeXの中間ファイル、Typstの作業用PDFはGit管理から除外しています。
+公開用の`docs/hkaomua.css`はGit管理に含めています。
+ローカル用の生成済みCSS、HTML、作業用PDF、`node_modules`、LaTeXの中間ファイル、Typstの作業用PDFはGit管理から除外しています。
+
+## 公開テーマの更新
+
+`marp/themes/line-seed.source.css`を編集し、フォントをセットアップした環境で次を実行します。
+
+```sh
+npm --prefix marp run theme:pages
+```
+
+生成された`docs/hkaomua.css`と変更したソースをコミットして`main`にpushすると、GitHub Pagesが更新されます。
+Pagesの公開元は`main`ブランチの`/docs`です。
+ローカル用テーマ名の`line-seed`は維持し、公開用テーマ名には`hkaomua`を使っています。
+公開CSSの更新は同じURLを使う資料にも反映されるため、過去の見た目を固定したい場合はCSSを資料と一緒に保存してください。
 
 ## 開発時の確認
 
@@ -224,6 +270,7 @@ Marpのコマンドについては[公式ドキュメント](https://github.com/
 
 テーマ、スクリプト、記入例、ドキュメントは[MIT License](LICENSE)で公開しています。
 LINE Seed JPのフォントはMITの対象ではなく、SIL Open Font License 1.1が適用されます。
-フォント本体は各自で公式サイトから取得してください。
+ローカルでビルドするためのフォント本体は各自で公式サイトから取得してください。
+公開CSSには未改変のWOFF2フォントとOFLの全文を埋め込み、[docs/OFL.txt](docs/OFL.txt)にもライセンスを同梱しています。
 PDF見本には表示に必要なフォントの一部が埋め込まれています。
 その著作権表示とライセンスは[fonts/OFL.txt](fonts/OFL.txt)にあります。
